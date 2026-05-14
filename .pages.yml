@@ -1,4 +1,10 @@
-media: public/uploads
+media:
+  - name: uploads
+    label: Uploads
+    input: public/uploads
+    output: /uploads
+    rename: safe
+    categories: [image]
 
 content:
 
