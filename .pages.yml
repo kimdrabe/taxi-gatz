@@ -32,8 +32,11 @@ content:
         type: string
       - name: badges
         label: Badges (unter den Buttons)
-        type: list
-        summary: "{text}"
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{text}"
         fields:
           - name: text
             label: Text
@@ -86,13 +89,15 @@ content:
         type: rich-text
       - name: tags
         label: Tags
-        type: list
-        items:
-          type: string
+        type: string
+        list: true
       - name: milestones
         label: Meilensteine (Zeitleiste)
-        type: list
-        summary: "{year}: {text}"
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year}: {text}"
         fields:
           - name: year
             label: Jahr
@@ -123,14 +128,12 @@ content:
         type: rich-text
       - name: benefits
         label: Benefits
-        type: list
-        items:
-          type: string
+        type: string
+        list: true
       - name: requirements
         label: Anforderungen
-        type: list
-        items:
-          type: string
+        type: string
+        list: true
       - name: form_title
         label: Formular-Überschrift
         type: string
