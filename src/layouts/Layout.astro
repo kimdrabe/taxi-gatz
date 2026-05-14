@@ -65,8 +65,8 @@ const ogImage = image || `${siteHost}${basePath}${site.og_image}`;
       "address": {
         "@type": "PostalAddress",
         "streetAddress": contact.street,
-        "addressLocality": contact.address.split(', ')[1] || "Overath",
-        "postalCode": contact.address.split(', ')[0]?.split(' ').pop() || "51491",
+        "addressLocality": contact.city.replace(/^\d+\s*/, '') || "Overath",
+        "postalCode": contact.city.match(/\d{5}/)?.[0] || "51491",
         "addressCountry": "DE"
       },
       "geo": {
