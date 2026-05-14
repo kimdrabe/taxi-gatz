@@ -34,6 +34,8 @@ content:
       - name: og_image
         label: "Social-Media-Vorschaubild (OG Image)"
         type: image
+        options:
+          media: uploads
         description: "Dieses Bild erscheint, wenn die Seite auf Facebook, WhatsApp, LinkedIn etc. geteilt wird. Empfohlene Größe: 1200×630 Pixel. Wichtig für einen professionellen Eindruck beim Teilen."
         hint: "Ein gutes Vorschaubild erhöht die Klickrate bei Social-Media-Teilungen um bis zu 40%"
 
