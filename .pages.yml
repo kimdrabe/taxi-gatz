@@ -36,7 +36,9 @@ content:
         type: image
         options:
           media: uploads
-        description: "Klicken Sie auf das Feld oder ziehen Sie ein Bild hinein. Empfohlen: 1200×630 Pixel. Dieses Bild erscheint, wenn die Seite in sozialen Netzwerken geteilt wird."
+          categories: [image]
+          rename: safe
+        description: "👉 KLICKEN Sie auf dieses Feld oder ZIEHEN SIE ein Bild hinein (JPG, PNG, WebP). Empfohlen: 1200×630 Pixel. Dieses Bild erscheint beim Teilen auf Facebook, WhatsApp etc."
         hint: "Ein gutes Vorschaubild erhöht die Klickrate bei Social-Media-Teilungen um bis zu 40%"
 
   - name: contactdata
@@ -102,8 +104,6 @@ content:
         label: Aufsichtsbehörde
         type: text
         description: "Zuständige Behörde für Personenbeförderung"
-        description: "Dieses Bild erscheint, wenn die Seite auf Facebook, WhatsApp, LinkedIn etc. geteilt wird. Empfohlene Größe: 1200×630 Pixel. Wichtig für einen professionellen Eindruck beim Teilen."
-        hint: "Ein gutes Vorschaubild erhöht die Klickrate bei Social-Media-Teilungen um bis zu 40%"
 
   - name: hero
     label: Hero Bereich

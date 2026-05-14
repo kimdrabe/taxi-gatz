@@ -21,7 +21,7 @@ const pageUrl = canonical || `${siteHost}${pagePath}`;
 const schemaUrl = `${siteHost}${basePath}`;
 const ogTitle = `${title} | Taxi & Mietwagen Gatz`;
 const ogDesc = description || site.site_description;
-const ogImage = image || `${siteHost}${basePath}${site.og_image}`;
+const ogImage = image || (site.og_image ? `${siteHost}${basePath}${site.og_image}` : '');
 
 const cityName = contact.city.replace(/^\d+\s*/, '') || "Overath";
 const zipMatch = contact.city.match(/\d{5}/);
