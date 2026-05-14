@@ -81,9 +81,13 @@ content:
             label: Icon
             type: select
             options:
-              - { label: "Uhr (24/7)", value: clock }
-              - { label: "Ort (Region)", value: location }
-              - { label: "Jahre (Seit)", value: years }
+              values:
+                - name: clock
+                  label: Uhr (24/7)
+                - name: location
+                  label: Ort (Region)
+                - name: years
+                  label: Jahre (Seit)
 
   - name: services
     label: Leistungen
@@ -104,26 +108,27 @@ content:
         label: Icon
         type: select
         options:
-          - { label: "🚕 Taxi", value: "🚕" }
-          - { label: "🚙 Mietwagen", value: "🚙" }
-          - { label: "🚗 Auto", value: "🚗" }
-          - { label: "🚐 Van/Kleinbus", value: "🚐" }
-          - { label: "🏥 Krankentransport", value: "🏥" }
-          - { label: "🎒 Schülerfahrt", value: "🎒" }
-          - { label: "🧸 KiTa-Fahrt", value: "🧸" }
-          - { label: "✈️ Flughafen", value: "✈️" }
-          - { label: "🚄 Bahnhof/Zug", value: "🚄" }
-          - { label: "📦 Kurier/Paket", value: "📦" }
-          - { label: "🛣️ Fernfahrt", value: "🛣️" }
-          - { label: "❤️ Gesundheit/Dialyse", value: "❤️" }
-          - { label: "🧳 Reise/Gepäck", value: "🧳" }
-          - { label: "⏰ Pünktlichkeit", value: "⏰" }
-          - { label: "⭐ Service/Premium", value: "⭐" }
-          - { label: "🏠 Tür-zu-Tür", value: "🏠" }
-          - { label: "♿ Behindertengerecht", value: "♿" }
-          - { label: "🔄 Transfer", value: "🔄" }
-          - { label: "📍 Standort", value: "📍" }
-          - { label: "🎯 Zielort", value: "🎯" }
+          values:
+            - { name: "🚕", label: "🚕 Taxi" }
+            - { name: "🚙", label: "🚙 Mietwagen" }
+            - { name: "🚗", label: "🚗 Auto" }
+            - { name: "🚐", label: "🚐 Van/Kleinbus" }
+            - { name: "🏥", label: "🏥 Krankentransport" }
+            - { name: "🎒", label: "🎒 Schülerfahrt" }
+            - { name: "🧸", label: "🧸 KiTa-Fahrt" }
+            - { name: "✈️", label: "✈️ Flughafen" }
+            - { name: "🚄", label: "🚄 Bahnhof/Zug" }
+            - { name: "📦", label: "📦 Kurier/Paket" }
+            - { name: "🛣️", label: "🛣️ Fernfahrt" }
+            - { name: "❤️", label: "❤️ Gesundheit/Dialyse" }
+            - { name: "🧳", label: "🧳 Reise/Gepäck" }
+            - { name: "⏰", label: "⏰ Pünktlichkeit" }
+            - { name: "⭐", label: "⭐ Service/Premium" }
+            - { name: "🏠", label: "🏠 Tür-zu-Tür" }
+            - { name: "♿", label: "♿ Behindertengerecht" }
+            - { name: "🔄", label: "🔄 Transfer" }
+            - { name: "📍", label: "📍 Standort" }
+            - { name: "🎯", label: "🎯 Zielort" }
       - name: order
         label: Reihenfolge
         type: number
