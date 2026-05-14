@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kimdrabe.github.io/taxi-gatz/sitemap.xml

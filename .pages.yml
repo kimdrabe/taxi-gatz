@@ -1,6 +1,35 @@
 media: public/uploads
 
+settings:
+  - name: seo
+    label: SEO Einstellungen
+    description: "Diese Einstellungen gelten für die gesamte Website und helfen Suchmaschinen, Ihre Seite besser zu verstehen und in den Suchergebnissen weiter oben zu platzieren."
+    path: src/data/site.json
+    format: json
+    fields:
+      - name: site_title
+        label: "Seitentitel (für Startseite)"
+        type: string
+        description: "Erscheint als erster Eintrag in den Google-Suchergebnissen. Sollte Hauptkeyword + Ortsname enthalten. Max. 60 Zeichen. Beispiel: Taxi & Mietwagen Gatz – Ihr zuverlässiges Taxi in Overath"
+        hint: "Wichtig für Google-Ranking – dies ist der erste Eindruck bei der Suche"
+      - name: site_description
+        label: "Meta-Beschreibung (für Startseite)"
+        type: text
+        description: "Die Kurzbeschreibung, die unter dem Titel in den Google-Suchergebnissen erscheint. Sollte in 1-2 Sätzen erklären, was Sie anbieten und wichtige Keywords enthalten. Max. 160 Zeichen."
+        hint: "Beeinflusst die Klickrate (CTR) aus den Suchergebnissen erheblich"
+      - name: keywords
+        label: "SEO-Keywords (durch Komma getrennt)"
+        type: text
+        description: "Wichtige Begriffe, nach denen Kunden suchen. Werden von Google zwar weniger gewichtet als früher, helfen aber bei der thematischen Einordnung."
+        hint: "z.B. Taxi Overath, Mietwagen Bergisch Gladbach, Krankentransport Rhein-Berg, Flughafenfahrt Köln/Bonn"
+      - name: og_image
+        label: "Social-Media-Vorschaubild (OG Image)"
+        type: image
+        description: "Dieses Bild erscheint, wenn die Seite auf Facebook, WhatsApp, LinkedIn etc. geteilt wird. Empfohlene Größe: 1200×630 Pixel. Wichtig für einen professionellen Eindruck beim Teilen."
+        hint: "Ein gutes Vorschaubild erhöht die Klickrate bei Social-Media-Teilungen um bis zu 40%"
+
 content:
+
   - name: hero
     label: Hero Bereich
     type: file
@@ -54,10 +83,9 @@ content:
     type: file
     path: src/data/services.json
     format: json
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{title}"
+    list: true
+    view:
+      primary: title
     fields:
       - name: title
         label: Titel
@@ -145,10 +173,9 @@ content:
     type: file
     path: src/data/reviews.json
     format: json
-    list:
-      collapsible:
-        collapsed: true
-        summary: "{name}"
+    list: true
+    view:
+      primary: name
     fields:
       - name: name
         label: Name

@@ -3,16 +3,24 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
+import site from '../data/site.json';
 
 export interface Props {
   title: string;
   description: string;
   canonical?: string;
+  image?: string;
 }
 
-const { title, description, canonical } = Astro.props;
-const site = 'https://kimdrabe.github.io/taxi-gatz';
-const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+const { title, description, canonical, image } = Astro.props;
+const siteHost = 'https://kimdrabe.github.io';
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+const pagePath = Astro.url.pathname;
+const pageUrl = canonical || `${siteHost}${pagePath}`;
+const schemaUrl = `${siteHost}${basePath}`;
+const ogTitle = `${title} | Taxi & Mietwagen Gatz`;
+const ogDesc = description || site.site_description;
+const ogImage = image || `${siteHost}${basePath}${site.og_image}`;
 ---
 
 <!doctype html>
@@ -20,26 +28,36 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonical || `${site}${Astro.url.pathname}`} />
+    <meta name="description" content={ogDesc} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#111111" />
+    <meta name="keywords" content={site.keywords} />
+    <link rel="canonical" href={pageUrl} />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical || `${site}${Astro.url.pathname}`} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDesc} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content="Taxi & Mietwagen Gatz" />
     <meta property="og:locale" content="de_DE" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDesc} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="geo.region" content="DE-NW" />
+    <meta name="geo.placename" content="Overath" />
+    <meta name="geo.position" content="50.9327;7.2829" />
+    <meta name="ICBM" content="50.9327, 7.2829" />
 
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Taxi & Mietwagen Gatz",
-      "image": `${site}/og-image.jpg`,
-      "url": site,
+      "image": ogImage,
+      "url": schemaUrl,
       "telephone": "+492206123456",
       "email": "info@taxi-gatz.de",
       "description": "Familiengeführtes Taxiunternehmen aus Overath seit 2002. Taxi, Mietwagen, Krankentransporte, Schülerfahrten und mehr.",
@@ -55,10 +73,25 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
         "latitude": 50.9327,
         "longitude": 7.2829
       },
-      "openingHours": "Mo-Su 00:00-24:00",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
       "foundingDate": "2002",
       "numberOfEmployees": 8,
-      "areaServed": ["Overath", "Rösrath", "Lohmar", "Much", "Engelskirchen", "Lindlar", "Köln", "Bergisch Gladbach", "Gummersbach"],
+      "areaServed": [
+        {"@type": "City", "name": "Overath"},
+        {"@type": "City", "name": "Rösrath"},
+        {"@type": "City", "name": "Lohmar"},
+        {"@type": "City", "name": "Much"},
+        {"@type": "City", "name": "Engelskirchen"},
+        {"@type": "City", "name": "Lindlar"},
+        {"@type": "City", "name": "Köln"},
+        {"@type": "City", "name": "Bergisch Gladbach"},
+        {"@type": "City", "name": "Gummersbach"}
+      ],
       "priceRange": "€€",
       "sameAs": [
         "https://www.facebook.com/taxigatz",
@@ -68,8 +101,9 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 
     <title>{title} | Taxi & Mietwagen Gatz</title>
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href={`${basePath}/favicon.svg`} />
+    <link rel="apple-touch-icon" href={`${basePath}/apple-touch-icon.png`} />
+    <link rel="sitemap" type="application/xml" href={`${basePath}/sitemap.xml`} />
   </head>
   <body class="overflow-x-hidden">
     <Header />
