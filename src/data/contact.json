@@ -10,5 +10,8 @@
   "hours": "24 Stunden, 7 Tage die Woche",
   "facebook": "https://www.facebook.com/taxigatz",
   "instagram": "https://www.instagram.com/taxigatz",
-  "google_place_id": ""
+  "google_place_id": "",
+  "show_facebook": true,
+  "show_instagram": true,
+  "show_whatsapp": true
 }

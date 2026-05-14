@@ -85,6 +85,15 @@ content:
         label: Google Place ID
         type: string
         description: "Für Google Bewertungen – leer lassen falls nicht bekannt"
+      - name: show_facebook
+        label: Facebook-Icon anzeigen?
+        type: boolean
+      - name: show_instagram
+        label: Instagram-Icon anzeigen?
+        type: boolean
+      - name: show_whatsapp
+        label: WhatsApp-Icon anzeigen?
+        type: boolean
 
   - name: impressum
     label: Impressum
