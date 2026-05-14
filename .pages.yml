@@ -101,8 +101,29 @@ content:
         label: Beschreibung
         type: text
       - name: icon
-        label: Icon (Emoji)
-        type: string
+        label: Icon
+        type: select
+        options:
+          - { label: "🚕 Taxi", value: "🚕" }
+          - { label: "🚙 Mietwagen", value: "🚙" }
+          - { label: "🚗 Auto", value: "🚗" }
+          - { label: "🚐 Van/Kleinbus", value: "🚐" }
+          - { label: "🏥 Krankentransport", value: "🏥" }
+          - { label: "🎒 Schülerfahrt", value: "🎒" }
+          - { label: "🧸 KiTa-Fahrt", value: "🧸" }
+          - { label: "✈️ Flughafen", value: "✈️" }
+          - { label: "🚄 Bahnhof/Zug", value: "🚄" }
+          - { label: "📦 Kurier/Paket", value: "📦" }
+          - { label: "🛣️ Fernfahrt", value: "🛣️" }
+          - { label: "❤️ Gesundheit/Dialyse", value: "❤️" }
+          - { label: "🧳 Reise/Gepäck", value: "🧳" }
+          - { label: "⏰ Pünktlichkeit", value: "⏰" }
+          - { label: "⭐ Service/Premium", value: "⭐" }
+          - { label: "🏠 Tür-zu-Tür", value: "🏠" }
+          - { label: "♿ Behindertengerecht", value: "♿" }
+          - { label: "🔄 Transfer", value: "🔄" }
+          - { label: "📍 Standort", value: "📍" }
+          - { label: "🎯 Zielort", value: "🎯" }
       - name: order
         label: Reihenfolge
         type: number
