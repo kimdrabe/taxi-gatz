@@ -1,7 +1,5 @@
 ---
 import reviews from '../data/reviews.json';
-
-const sorted = reviews.sort((a, b) => a.order - b.order);
 ---
 
 <section id="bewertungen" class="section-padding bg-taxi-gray-100">
@@ -19,7 +17,7 @@ const sorted = reviews.sort((a, b) => a.order - b.order);
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {sorted.map((review, index) => (
+      {reviews.map((review, index) => (
         <blockquote
           class="bg-taxi-white rounded-2xl p-6 shadow-sm border border-gray-100"
           style={`animation: slideUpSm 0.5s ease-out ${index * 0.05}s forwards; opacity: 0;`}

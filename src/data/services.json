@@ -1,12 +1,12 @@
 [
-  { "title": "Taxi", "description": "Schnell und sicher ans Ziel – innerorts, umliegende Orte und auf Wunsch auch in die umliegenden Städte.", "icon": "🚕", "order": 1 },
-  { "title": "Mietwagen", "description": "Komfortable Fahrten auf Vorbestellung. Ideal für Geschäftstermine, private Erledigungen oder besondere Anlässe.", "icon": "🚙", "order": 2 },
-  { "title": "Krankentransporte", "description": "Einfühlsame und zuverlässige Beförderung zu Arztterminen, Therapien oder Krankenhausaufenthalten. Inklusive Begleitperson.", "icon": "🏥", "order": 3 },
-  { "title": "Schülerfahrten", "description": "Verlässliche Beförderung von Kindern zur Schule, zur KiTa oder zu Freizeitaktivitäten.", "icon": "🎒", "order": 4 },
-  { "title": "KiTa-Fahrten", "description": "Bringen und Abholen Ihrer Kleinsten zur Kindertagesstätte – pünktlich und sicher.", "icon": "🧸", "order": 5 },
-  { "title": "Flughafenfahrten", "description": "Stressfreie Fahrt zu den Flughäfen Köln/Bonn, Düsseldorf oder Frankfurt. Inklusive Gepäckhilfe.", "icon": "✈️", "order": 6 },
-  { "title": "Bahnhofsfahrten", "description": "Pünktlicher Transfer zum Bahnhof – ob für den Berufsverkehr oder die Reise.", "icon": "🚄", "order": 7 },
-  { "title": "Kurierfahrten", "description": "Schnelle Zustellung von Dokumenten, Paketen oder Ersatzteilen im Stadt- und Regionalverkehr.", "icon": "📦", "order": 8 },
-  { "title": "Fernfahrten", "description": "Auch für längere Strecken sind wir Ihr zuverlässiger Partner. Sicher und komfortabel durch ganz Deutschland.", "icon": "🛣️", "order": 9 },
-  { "title": "Dialysefahrten", "description": "Regelmäßige und verlässliche Fahrten zu Ihren Dialyse-Terminen – immer zur richtigen Zeit am richtigen Ort.", "icon": "❤️", "order": 10 }
+  { "title": "Taxi", "description": "Schnell und sicher ans Ziel – innerorts, umliegende Orte und auf Wunsch auch in die umliegenden Städte.", "icon": "🚕" },
+  { "title": "Mietwagen", "description": "Komfortable Fahrten auf Vorbestellung. Ideal für Geschäftstermine, private Erledigungen oder besondere Anlässe.", "icon": "🚙" },
+  { "title": "Krankentransporte", "description": "Einfühlsame und zuverlässige Beförderung zu Arztterminen, Therapien oder Krankenhausaufenthalten. Inklusive Begleitperson.", "icon": "🏥" },
+  { "title": "Schülerfahrten", "description": "Verlässliche Beförderung von Kindern zur Schule, zur KiTa oder zu Freizeitaktivitäten.", "icon": "🎒" },
+  { "title": "KiTa-Fahrten", "description": "Bringen und Abholen Ihrer Kleinsten zur Kindertagesstätte – pünktlich und sicher.", "icon": "🧸" },
+  { "title": "Flughafenfahrten", "description": "Stressfreie Fahrt zu den Flughäfen Köln/Bonn, Düsseldorf oder Frankfurt. Inklusive Gepäckhilfe.", "icon": "✈️" },
+  { "title": "Bahnhofsfahrten", "description": "Pünktlicher Transfer zum Bahnhof – ob für den Berufsverkehr oder die Reise.", "icon": "🚄" },
+  { "title": "Kurierfahrten", "description": "Schnelle Zustellung von Dokumenten, Paketen oder Ersatzteilen im Stadt- und Regionalverkehr.", "icon": "📦" },
+  { "title": "Fernfahrten", "description": "Auch für längere Strecken sind wir Ihr zuverlässiger Partner. Sicher und komfortabel durch ganz Deutschland.", "icon": "🛣️" },
+  { "title": "Dialysefahrten", "description": "Regelmäßige und verlässliche Fahrten zu Ihren Dialyse-Terminen – immer zur richtigen Zeit am richtigen Ort.", "icon": "❤️" }
 ]

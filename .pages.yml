@@ -179,21 +179,10 @@ content:
                 - name: years
                   label: Jahre (Seit)
 
-  - name: services
-    label: Leistungen
-    type: file
-    path: src/data/services.json
-    format: json
-    list: true
-    view:
-      primary: title
     fields:
       - name: title
         label: Titel
         type: string
-      - name: description
-        label: Beschreibung
-        type: text
       - name: icon
         label: Icon
         type: select
@@ -219,9 +208,38 @@ content:
             - { name: "🔄", label: "🔄 Transfer" }
             - { name: "📍", label: "📍 Standort" }
             - { name: "🎯", label: "🎯 Zielort" }
-      - name: order
-        label: Reihenfolge
-        type: number
+      - name: description
+        label: Beschreibung
+        type: text
+
+  - name: about
+        label: Icon
+        type: select
+        options:
+          values:
+            - { name: "🚕", label: "🚕 Taxi" }
+            - { name: "🚙", label: "🚙 Mietwagen" }
+            - { name: "🚗", label: "🚗 Auto" }
+            - { name: "🚐", label: "🚐 Van/Kleinbus" }
+            - { name: "🏥", label: "🏥 Krankentransport" }
+            - { name: "🎒", label: "🎒 Schülerfahrt" }
+            - { name: "🧸", label: "🧸 KiTa-Fahrt" }
+            - { name: "✈️", label: "✈️ Flughafen" }
+            - { name: "🚄", label: "🚄 Bahnhof/Zug" }
+            - { name: "📦", label: "📦 Kurier/Paket" }
+            - { name: "🛣️", label: "🛣️ Fernfahrt" }
+            - { name: "❤️", label: "❤️ Gesundheit/Dialyse" }
+            - { name: "🧳", label: "🧳 Reise/Gepäck" }
+            - { name: "⏰", label: "⏰ Pünktlichkeit" }
+            - { name: "⭐", label: "⭐ Service/Premium" }
+            - { name: "🏠", label: "🏠 Tür-zu-Tür" }
+            - { name: "♿", label: "♿ Behindertengerecht" }
+            - { name: "🔄", label: "🔄 Transfer" }
+            - { name: "📍", label: "📍 Standort" }
+            - { name: "🎯", label: "🎯 Zielort" }
+      - name: description
+        label: Beschreibung
+        type: text
 
   - name: about
     label: Über uns
@@ -313,9 +331,6 @@ content:
             - { name: 3, label: "⭐⭐⭐ 3 Sterne" }
             - { name: 2, label: "⭐⭐ 2 Sterne" }
             - { name: 1, label: "⭐ 1 Stern" }
-      - name: order
-        label: Reihenfolge
-        type: number
 
   - name: contact
     label: Kontakt

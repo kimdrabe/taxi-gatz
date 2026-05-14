@@ -1,8 +1,6 @@
 ---
 import services from '../data/services.json';
 import contact from '../data/contact.json';
-
-const sorted = services.sort((a, b) => a.order - b.order);
 ---
 
 <section id="leistungen" class="section-padding bg-taxi-gray-100">
@@ -20,7 +18,7 @@ const sorted = services.sort((a, b) => a.order - b.order);
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-      {sorted.map((service, index) => (
+      {services.map((service, index) => (
         <article
           class="group relative bg-taxi-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-taxi-yellow/30 hover:-translate-y-1"
           style={`animation: slideUpSm 0.5s ease-out ${index * 0.05}s forwards; opacity: 0;`}
