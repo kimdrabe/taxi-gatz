@@ -1,0 +1,21 @@
+{
+  "name": "taxi-gatz",
+  "version": "1.0.0",
+  "description": "Taxi & Mietwagen Gatz - Ihr zuverlässiges Taxi in Overath",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.5",
+    "astro": "^5.18.1",
+    "astro-seo": "^1.1.0",
+    "tailwindcss": "^3.4.19"
+  }
+}

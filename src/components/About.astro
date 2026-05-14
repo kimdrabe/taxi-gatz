@@ -1,0 +1,80 @@
+---
+const milestones = [
+  { year: '2002', text: 'Gründung des Familienunternehmens' },
+  { year: '2008', text: 'Erweiterung um Mietwagen-Service' },
+  { year: '2015', text: 'Aufnahme Krankentransporte' },
+  { year: '2023', text: 'Einführung erster Elektrofahrzeuge' },
+  { year: '2025', text: 'Mitglied im Taxiverband NRW' },
+  { year: '2027', text: '25-jähriges Jubiläum' },
+];
+---
+
+<section id="uber-uns" class="section-padding bg-taxi-white">
+  <div class="container-narrow">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div>
+        <span class="inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-taxi-yellow-dark bg-taxi-yellow/10 rounded-full mb-4">
+          Über uns
+        </span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-taxi-black mb-6 text-balance">
+          Familie, die fährt – seit 2002
+        </h2>
+
+        <div class="space-y-4 text-taxi-gray-600 leading-relaxed">
+          <p>
+            <strong class="text-taxi-black">Taxi & Mietwagen Gatz</strong> ist ein familiengeführtes Unternehmen aus Overath. Seit der Gründung im Jahr 2002 setzen wir auf <strong class="text-taxi-black">Zuverlässigkeit, Fairness und persönlichen Service</strong>.
+          </p>
+          <p>
+            Mit unseren 8 Mitarbeitern sind wir rund um die Uhr für Sie unterwegs – ob im Stadtgebiet Overath, in den umliegenden Gemeinden oder auf Fernfahrten durch ganz Deutschland.
+          </p>
+          <p>
+            Wir sind stolz darauf, dass viele unserer Fahrgäste seit Jahren Stammkunden sind. <strong class="text-taxi-black">Vertrauen wächst mit jeder Fahrt.</strong>
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-4 mt-8">
+          <div class="flex items-center gap-2 text-sm font-medium text-taxi-black bg-taxi-gray-100 px-4 py-2 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-taxi-yellow"></span>
+            Familiengeführt
+          </div>
+          <div class="flex items-center gap-2 text-sm font-medium text-taxi-black bg-taxi-gray-100 px-4 py-2 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-taxi-yellow"></span>
+            Seit 2002
+          </div>
+          <div class="flex items-center gap-2 text-sm font-medium text-taxi-black bg-taxi-gray-100 px-4 py-2 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-taxi-yellow"></span>
+            Elektro-Flotte
+          </div>
+          <div class="flex items-center gap-2 text-sm font-medium text-taxi-black bg-taxi-gray-100 px-4 py-2 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-taxi-yellow"></span>
+            Taxiverband-Mitglied
+          </div>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="relative z-10 bg-taxi-black rounded-3xl p-8 md:p-10 overflow-hidden">
+          <div class="absolute inset-0 bg-grid-pattern"></div>
+          <div class="relative z-10">
+            <h3 class="text-xl font-bold text-taxi-white mb-8">Unser Weg</h3>
+            <div class="space-y-0">
+              {milestones.map((m, i) => (
+                <div class="relative flex gap-4 pb-8 last:pb-0">
+                  <div class="flex flex-col items-center">
+                    <span class="flex-shrink-0 w-3 h-3 rounded-full bg-taxi-yellow ring-4 ring-taxi-yellow/20"></span>
+                    {i < milestones.length - 1 && <div class="w-px flex-1 bg-white/10 mt-1"></div>}
+                  </div>
+                  <div>
+                    <span class="text-sm font-bold text-taxi-yellow">{m.year}</span>
+                    <p class="text-sm text-taxi-gray-400 mt-0.5">{m.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-taxi-yellow/10 rounded-full blur-3xl"></div>
+      </div>
+    </div>
+  </div>
+</section>

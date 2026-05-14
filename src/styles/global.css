@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans text-taxi-black bg-taxi-white;
+  }
+
+  ::selection {
+    @apply bg-taxi-yellow/80 text-taxi-black;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-taxi-yellow;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-taxi-black bg-taxi-yellow rounded-xl transition-all duration-300 hover:bg-taxi-yellow-dark hover:shadow-lg hover:shadow-taxi-yellow/25 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-taxi-yellow active:scale-[0.97];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-taxi-white bg-taxi-black rounded-xl transition-all duration-300 hover:bg-taxi-gray-800 hover:shadow-lg hover:shadow-black/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-taxi-yellow active:scale-[0.97];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-taxi-white border-2 border-taxi-white/30 rounded-xl transition-all duration-300 hover:border-taxi-yellow hover:text-taxi-yellow focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-taxi-yellow active:scale-[0.97];
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .container-narrow {
+    @apply max-w-6xl mx-auto;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-grid-pattern {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}

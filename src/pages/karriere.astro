@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Karriere – Taxi & Mietwagen Gatz" description="Verstärken Sie unser Team! Wir suchen Fahrer (m/w/d) für Taxi und Krankentransporte in Overath. Jetzt bewerben!">
+  <section class="pt-28 pb-16 md:pt-36 md:pb-24 bg-taxi-black">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-taxi-yellow-dark bg-taxi-yellow/10 rounded-full mb-4">
+        Karriere
+      </span>
+      <h1 class="text-3xl md:text-5xl font-display font-bold text-taxi-white mb-4 text-balance">
+        Werden Sie Teil unseres Teams
+      </h1>
+      <p class="text-taxi-gray-400 text-lg max-w-2xl mx-auto">
+        Wir suchen Verstärkung! Fahren Sie mit uns – flexibel, fair und familiär.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-padding bg-taxi-white">
+    <div class="container-narrow">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-display font-bold text-taxi-black mb-6">
+            Fahrer (m/w/d) gesucht
+          </h2>
+          <div class="space-y-6 text-taxi-gray-600 leading-relaxed">
+            <p>
+              Wir wachsen und suchen <strong class="text-taxi-black">engagierte Fahrer (m/w/d)</strong> für unseren Fuhrpark. Ob als Vollzeit-, Teilzeitkraft oder auf Minijob-Basis – bei uns finden Sie den Job, der zu Ihrem Leben passt.
+            </p>
+          </div>
+
+          <div class="bg-taxi-gray-100 rounded-2xl p-6 md:p-8 mt-8">
+            <h3 class="text-lg font-bold text-taxi-black mb-4">Das bieten wir</h3>
+            <ul class="space-y-3">
+              {[
+                'Flexible Arbeitszeiten (Vollzeit, Teilzeit, Minijob)',
+                'Faire Vergütung und pünktliche Zahlung',
+                'Moderne Fahrzeugflotte (inkl. Elektrofahrzeuge)',
+                'Angenehmes Betriebsklima in einem kleinen Team',
+                'Einarbeitung und Begleitung in der Anfangszeit',
+                'Unbefristeter Arbeitsvertrag',
+              ].map(item => (
+                <li class="flex items-start gap-3 text-sm text-taxi-gray-700">
+                  <svg class="w-5 h-5 text-taxi-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="bg-taxi-gray-100 rounded-2xl p-6 md:p-8 mt-4">
+            <h3 class="text-lg font-bold text-taxi-black mb-4">Das sollten Sie mitbringen</h3>
+            <ul class="space-y-3">
+              {[
+                'Führerschein Klasse B (Klasse D von Vorteil)',
+                'Pkw-Fahrpraxis und Ortskenntnisse in Overath / Rhein-Berg',
+                'Freundliches und zuverlässiges Auftreten',
+                'Lust auf selbstständiges Arbeiten',
+                'Pünktlichkeit und Verantwortungsbewusstsein',
+                'Personenbeförderungsschein (wird bei Bedarf unterstützt)',
+              ].map(item => (
+                <li class="flex items-start gap-3 text-sm text-taxi-gray-700">
+                  <svg class="w-5 h-5 text-taxi-yellow mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-taxi-black rounded-3xl p-6 md:p-8 lg:sticky lg:top-28">
+          <h3 class="text-xl font-bold text-taxi-white mb-6">Jetzt bewerben</h3>
+          <form action="#" method="POST" class="space-y-4">
+            <div>
+              <label for="c-name" class="block text-sm font-medium text-taxi-gray-200 mb-1.5">Name *</label>
+              <input type="text" id="c-name" name="name" required
+                class="w-full px-4 py-3 bg-taxi-gray-800 border border-white/10 rounded-xl text-sm text-taxi-white placeholder:text-taxi-gray-500 focus:ring-2 focus:ring-taxi-yellow focus:border-transparent outline-none transition-all"
+                placeholder="Ihr Name" />
+            </div>
+            <div>
+              <label for="c-email" class="block text-sm font-medium text-taxi-gray-200 mb-1.5">E-Mail *</label>
+              <input type="email" id="c-email" name="email" required
+                class="w-full px-4 py-3 bg-taxi-gray-800 border border-white/10 rounded-xl text-sm text-taxi-white placeholder:text-taxi-gray-500 focus:ring-2 focus:ring-taxi-yellow focus:border-transparent outline-none transition-all"
+                placeholder="ihre@email.de" />
+            </div>
+            <div>
+              <label for="c-phone" class="block text-sm font-medium text-taxi-gray-200 mb-1.5">Telefon</label>
+              <input type="tel" id="c-phone" name="phone"
+                class="w-full px-4 py-3 bg-taxi-gray-800 border border-white/10 rounded-xl text-sm text-taxi-white placeholder:text-taxi-gray-500 focus:ring-2 focus:ring-taxi-yellow focus:border-transparent outline-none transition-all"
+                placeholder="02206 ..." />
+            </div>
+            <div>
+              <label for="c-message" class="block text-sm font-medium text-taxi-gray-200 mb-1.5">Nachricht / Lebenslauf *</label>
+              <textarea id="c-message" name="message" rows="5" required
+                class="w-full px-4 py-3 bg-taxi-gray-800 border border-white/10 rounded-xl text-sm text-taxi-white placeholder:text-taxi-gray-500 focus:ring-2 focus:ring-taxi-yellow focus:border-transparent outline-none transition-all resize-none"
+                placeholder="Erzählen Sie uns etwas über sich, Ihre Erfahrung und Verfügbarkeit..."></textarea>
+            </div>
+            <div class="flex items-start gap-3">
+              <input type="checkbox" id="c-privacy" name="privacy" required
+                class="mt-1 w-4 h-4 rounded border-gray-600 text-taxi-yellow focus:ring-taxi-yellow bg-taxi-gray-800" />
+              <label for="c-privacy" class="text-xs text-taxi-gray-400">
+                Ich stimme der <a href="/datenschutz" class="text-taxi-yellow underline hover:text-taxi-yellow-dark">Datenschutzerklärung</a> zu. *
+              </label>
+            </div>
+            <button type="submit" class="btn-primary w-full">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Bewerbung absenden
+            </button>
+          </form>
+          <p class="text-xs text-taxi-gray-500 mt-4">
+            Alternativ bewerben Sie sich per E-Mail an <a href="mailto:info@taxi-gatz.de" class="text-taxi-yellow underline">info@taxi-gatz.de</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
