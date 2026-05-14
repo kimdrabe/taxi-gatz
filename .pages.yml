@@ -179,6 +179,14 @@ content:
                 - name: years
                   label: Jahre (Seit)
 
+  - name: services
+    label: Leistungen
+    type: file
+    path: src/data/services.json
+    format: json
+    list: true
+    view:
+      primary: title
     fields:
       - name: title
         label: Titel
