@@ -50,9 +50,18 @@ const careerCollection = defineCollection({
   }),
 });
 
+const legalCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+  }),
+});
+
 export const collections = {
   hero: heroCollection,
   about: aboutCollection,
   contact: contactCollection,
   career: careerCollection,
+  impressum: legalCollection,
+  datenschutz: legalCollection,
 };

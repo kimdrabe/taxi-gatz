@@ -1,71 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+import { marked } from 'marked';
+
+const entry = await getEntry('datenschutz', 'datenschutz');
+const content = entry ? marked.parse(entry.body) : '';
+const title = entry?.data?.title || 'Datenschutzerklärung';
 ---
 
 <Layout title="Datenschutz" description="Datenschutzerklärung der Taxi & Mietwagen Gatz in Overath.">
   <section class="pt-28 pb-16 md:pt-36 md:pb-24 bg-taxi-black">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-3xl md:text-5xl font-display font-bold text-taxi-white mb-4">Datenschutzerklärung</h1>
+      <h1 class="text-3xl md:text-5xl font-display font-bold text-taxi-white mb-4">{title}</h1>
     </div>
   </section>
 
   <section class="section-padding bg-taxi-white">
     <div class="container-narrow max-w-3xl">
-      <div class="prose prose-gray max-w-none">
-        <h2>1. Datenschutz auf einen Blick</h2>
-        <h3>Allgemeine Hinweise</h3>
-        <p>
-          Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.
-        </p>
-
-        <h3>Datenerfassung auf dieser Website</h3>
-        <p>
-          <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong><br />
-          Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.
-        </p>
-        <p>
-          <strong>Wie erfassen wir Ihre Daten?</strong><br />
-          Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z.B. um Daten handeln, die Sie in ein Kontaktformular eingeben.
-        </p>
-        <p>
-          <strong>Wofür nutzen wir Ihre Daten?</strong><br />
-          Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
-        </p>
-
-        <h2>2. Allgemeine Hinweise und Pflichtinformationen</h2>
-        <h3>Datenschutz</h3>
-        <p>
-          Der Betreiber dieser Seite nimmt den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
-        </p>
-
-        <h3>Hinweis zur verantwortlichen Stelle</h3>
-        <p>
-          Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br />
-          Taxi & Mietwagen Gatz<br />
-          Kleinhurden 3<br />
-          51491 Overath<br />
-          Telefon: 02206 123456<br />
-          E-Mail: info@taxi-gatz.de
-        </p>
-
-        <h2>3. Datenerfassung auf dieser Website</h2>
-        <h3>Cookies</h3>
-        <p>
-          Diese Website verwendet Cookies. Cookies werden entweder von unserem Server oder von Drittanbieterdiensten an Ihren Browser übertragen und dort gespeichert. Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und Cookies nur im Einzelfall erlauben.
-        </p>
-
-        <h3>Kontaktformular</h3>
-        <p>
-          Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
-        </p>
-
-        <h2>4. Ihre Rechte</h2>
-        <p>
-          Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht auf Berichtigung, Sperrung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.
-        </p>
-
-        <p><em>Stand: Januar 2026</em></p>
-      </div>
+      <div class="prose prose-gray max-w-none" set:html={content}></div>
     </div>
   </section>
 </Layout>

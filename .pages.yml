@@ -89,21 +89,34 @@ content:
   - name: impressum
     label: Impressum
     type: file
-    path: src/data/impressum.json
-    format: json
+    path: src/content/impressum/impressum.md
+    format: yaml-frontmatter
     view:
-      primary: owner
+      primary: title
     fields:
-      - name: owner
-        label: Inhaber (Name)
+      - name: title
+        label: Titel
         type: string
-      - name: ust_id
-        label: Umsatzsteuer-ID
+      - name: body
+        label: "Inhalt (kompletten Text hier einfügen)"
+        type: rich-text
+        description: "Hier können Sie den gesamten Impressumstext frei eingeben oder per copy & paste einfügen."
+
+  - name: datenschutz
+    label: Datenschutz
+    type: file
+    path: src/content/datenschutz/datenschutz.md
+    format: yaml-frontmatter
+    view:
+      primary: title
+    fields:
+      - name: title
+        label: Titel
         type: string
-      - name: authority
-        label: Aufsichtsbehörde
-        type: text
-        description: "Zuständige Behörde für Personenbeförderung"
+      - name: body
+        label: "Inhalt (kompletten Text hier einfügen)"
+        type: rich-text
+        description: "Hier können Sie den gesamten Datenschutztext frei eingeben oder per copy & paste einfügen."
 
   - name: hero
     label: Hero Bereich

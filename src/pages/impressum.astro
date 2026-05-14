@@ -1,60 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import contact from '../data/contact.json';
-import impressum from '../data/impressum.json';
+import { getEntry } from 'astro:content';
+import { marked } from 'marked';
+
+const entry = await getEntry('impressum', 'impressum');
+const content = entry ? marked.parse(entry.body) : '';
+const title = entry?.data?.title || 'Impressum';
 ---
 
 <Layout title="Impressum" description="Impressum der Taxi & Mietwagen Gatz in Overath.">
   <section class="pt-28 pb-16 md:pt-36 md:pb-24 bg-taxi-black">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-3xl md:text-5xl font-display font-bold text-taxi-white mb-4">Impressum</h1>
+      <h1 class="text-3xl md:text-5xl font-display font-bold text-taxi-white mb-4">{title}</h1>
     </div>
   </section>
 
   <section class="section-padding bg-taxi-white">
     <div class="container-narrow max-w-3xl">
-      <div class="prose prose-gray max-w-none">
-        <h2>Angaben gemäß § 5 TMG</h2>
-        <p>
-          <strong>{contact.company}</strong><br />
-          {contact.street}<br />
-          {contact.city}
-        </p>
-
-        <h3>Vertreten durch</h3>
-        <p>Inhaber: {impressum.owner}</p>
-
-        <h3>Kontakt</h3>
-        <p>
-          Telefon: {contact.phone}<br />
-          E-Mail: {contact.email}
-        </p>
-
-        <h3>Umsatzsteuer-ID</h3>
-        <p>
-          Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-          {impressum.ust_id}
-        </p>
-
-        <h3>Aufsichtsbehörde</h3>
-        <p>
-          {impressum.authority}
-        </p>
-
-        <h2>Haftungsausschluss</h2>
-        <h3>Haftung für Inhalte</h3>
-        <p>
-          Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
-        </p>
-        <h3>Haftung für Links</h3>
-        <p>
-          Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
-        </p>
-        <h3>Urheberrecht</h3>
-        <p>
-          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.
-        </p>
-      </div>
+      <div class="prose prose-gray max-w-none" set:html={content}></div>
     </div>
   </section>
 </Layout>
