@@ -34,10 +34,6 @@ const contactCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    phone: z.string(),
-    email: z.string(),
-    address: z.string(),
-    hours: z.string(),
     form_heading: z.string(),
   }),
 });
@@ -51,7 +47,6 @@ const careerCollection = defineCollection({
     benefits: z.array(z.string()),
     requirements: z.array(z.string()),
     form_title: z.string(),
-    form_note: z.string(),
   }),
 });
 

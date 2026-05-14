@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import site from '../data/site.json';
+import contact from '../data/contact.json';
 
 export interface Props {
   title: string;
@@ -55,17 +56,17 @@ const ogImage = image || `${siteHost}${basePath}${site.og_image}`;
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Taxi & Mietwagen Gatz",
+      "name": contact.company,
       "image": ogImage,
       "url": schemaUrl,
-      "telephone": "+492206123456",
-      "email": "info@taxi-gatz.de",
-      "description": "Familiengeführtes Taxiunternehmen aus Overath seit 2002. Taxi, Mietwagen, Krankentransporte, Schülerfahrten und mehr.",
+      "telephone": `+49${contact.phone.replace(/\s/g, '').replace(/^0/, '')}`,
+      "email": contact.email,
+      "description": site.site_description,
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Kleinhurden 3",
-        "addressLocality": "Overath",
-        "postalCode": "51491",
+        "streetAddress": contact.street,
+        "addressLocality": contact.address.split(', ')[1] || "Overath",
+        "postalCode": contact.address.split(', ')[0]?.split(' ').pop() || "51491",
         "addressCountry": "DE"
       },
       "geo": {
@@ -94,8 +95,8 @@ const ogImage = image || `${siteHost}${basePath}${site.og_image}`;
       ],
       "priceRange": "€€",
       "sameAs": [
-        "https://www.facebook.com/taxigatz",
-        "https://www.instagram.com/taxigatz"
+        contact.facebook,
+        contact.instagram
       ]
     })} />
 

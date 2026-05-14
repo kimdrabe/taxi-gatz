@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import contact from '../data/contact.json';
+import impressum from '../data/impressum.json';
 ---
 
 <Layout title="Impressum" description="Impressum der Taxi & Mietwagen Gatz in Overath.">
@@ -14,29 +16,29 @@ import Layout from '../layouts/Layout.astro';
       <div class="prose prose-gray max-w-none">
         <h2>Angaben gemäß § 5 TMG</h2>
         <p>
-          <strong>Taxi & Mietwagen Gatz</strong><br />
-          Kleinhurden 3<br />
-          51491 Overath
+          <strong>{contact.company}</strong><br />
+          {contact.street}<br />
+          {contact.city}
         </p>
 
         <h3>Vertreten durch</h3>
-        <p>Inhaber: [Name des Inhabers]</p>
+        <p>Inhaber: {impressum.owner}</p>
 
         <h3>Kontakt</h3>
         <p>
-          Telefon: 02206 123456<br />
-          E-Mail: info@taxi-gatz.de
+          Telefon: {contact.phone}<br />
+          E-Mail: {contact.email}
         </p>
 
         <h3>Umsatzsteuer-ID</h3>
         <p>
           Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-          DE [UID-Nummer]
+          {impressum.ust_id}
         </p>
 
         <h3>Aufsichtsbehörde</h3>
         <p>
-          [Zuständige Behörde für Personenbeförderung]
+          {impressum.authority}
         </p>
 
         <h2>Haftungsausschluss</h2>

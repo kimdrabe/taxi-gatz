@@ -17,7 +17,6 @@ requirements:
   - "Pünktlichkeit und Verantwortungsbewusstsein"
   - "Personenbeförderungsschein (wird bei Bedarf unterstützt)"
 form_title: "Jetzt bewerben"
-form_note: "Alternativ bewerben Sie sich per E-Mail an info@taxi-gatz.de"
 ---
 
 Wir wachsen und suchen **engagierte Fahrer (m/w/d)** für unseren Fuhrpark. Ob als Vollzeit-, Teilzeitkraft oder auf Minijob-Basis – bei uns finden Sie den Job, der zu Ihrem Leben passt.

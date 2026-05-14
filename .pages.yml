@@ -32,10 +32,76 @@ content:
         description: "Wichtige Begriffe, nach denen Kunden suchen. Werden von Google zwar weniger gewichtet als früher, helfen aber bei der thematischen Einordnung."
         hint: "z.B. Taxi Overath, Mietwagen Bergisch Gladbach, Krankentransport Rhein-Berg, Flughafenfahrt Köln/Bonn"
       - name: og_image
-        label: "Social-Media-Vorschaubild (OG Image)"
+        label: "Vorschaubild (für Facebook/WhatsApp)"
         type: image
         options:
           media: uploads
+        description: "Klicken Sie auf das Feld oder ziehen Sie ein Bild hinein. Empfohlen: 1200×630 Pixel. Dieses Bild erscheint, wenn die Seite in sozialen Netzwerken geteilt wird."
+        hint: "Ein gutes Vorschaubild erhöht die Klickrate bei Social-Media-Teilungen um bis zu 40%"
+
+  - name: contactdata
+    label: Kontaktdaten
+    type: file
+    path: src/data/contact.json
+    format: json
+    view:
+      primary: company
+    fields:
+      - name: company
+        label: Firmenname
+        type: string
+      - name: phone
+        label: Telefon (mit Leerzeichen)
+        type: string
+        description: "z.B. 02206 123456 – wird automatisch für alle Telefonlinks auf der ganzen Seite verwendet"
+      - name: email
+        label: E-Mail-Adresse
+        type: string
+      - name: whatsapp
+        label: WhatsApp-Nummer (international ohne +)
+        type: string
+        description: "z.B. 492206123456"
+      - name: address
+        label: Adresse (komplett)
+        type: string
+      - name: street
+        label: Straße + Hausnr.
+        type: string
+      - name: city
+        label: PLZ + Ort
+        type: string
+      - name: hours
+        label: Öffnungszeiten
+        type: string
+      - name: facebook
+        label: Facebook-URL
+        type: string
+      - name: instagram
+        label: Instagram-URL
+        type: string
+      - name: google_place_id
+        label: Google Place ID
+        type: string
+        description: "Für Google Bewertungen – leer lassen falls nicht bekannt"
+
+  - name: impressum
+    label: Impressum
+    type: file
+    path: src/data/impressum.json
+    format: json
+    view:
+      primary: owner
+    fields:
+      - name: owner
+        label: Inhaber (Name)
+        type: string
+      - name: ust_id
+        label: Umsatzsteuer-ID
+        type: string
+      - name: authority
+        label: Aufsichtsbehörde
+        type: text
+        description: "Zuständige Behörde für Personenbeförderung"
         description: "Dieses Bild erscheint, wenn die Seite auf Facebook, WhatsApp, LinkedIn etc. geteilt wird. Empfohlene Größe: 1200×630 Pixel. Wichtig für einen professionellen Eindruck beim Teilen."
         hint: "Ein gutes Vorschaubild erhöht die Klickrate bei Social-Media-Teilungen um bis zu 40%"
 
@@ -199,9 +265,6 @@ content:
       - name: form_title
         label: Formular-Überschrift
         type: string
-      - name: form_note
-        label: Formular-Hinweis
-        type: string
 
   - name: reviews
     label: Bewertungen
@@ -219,8 +282,15 @@ content:
         label: Bewertungstext
         type: text
       - name: rating
-        label: Sterne (1-5)
-        type: number
+        label: Sterne
+        type: select
+        options:
+          values:
+            - { name: 5, label: "⭐⭐⭐⭐⭐ 5 Sterne" }
+            - { name: 4, label: "⭐⭐⭐⭐ 4 Sterne" }
+            - { name: 3, label: "⭐⭐⭐ 3 Sterne" }
+            - { name: 2, label: "⭐⭐ 2 Sterne" }
+            - { name: 1, label: "⭐ 1 Stern" }
       - name: order
         label: Reihenfolge
         type: number
@@ -239,18 +309,6 @@ content:
       - name: description
         label: Beschreibung
         type: text
-      - name: phone
-        label: Telefonnummer
-        type: string
-      - name: email
-        label: E-Mail-Adresse
-        type: string
-      - name: address
-        label: Adresse
-        type: string
-      - name: hours
-        label: Öffnungszeiten
-        type: string
       - name: form_heading
         label: Formular-Überschrift
         type: string

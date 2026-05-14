@@ -1,11 +1,13 @@
 ---
 import { getEntry } from 'astro:content';
 import { marked } from 'marked';
+import contact from '../data/contact.json';
 
 const career = await getEntry('career', 'career');
 if (!career) throw new Error('Career content not found');
-const { title, subtitle, job_title, benefits, requirements, form_title, form_note } = career.data;
+const { title, subtitle, job_title, benefits, requirements, form_title } = career.data;
 const renderedDesc = marked.parse(career.body);
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <section id="karriere" class="section-padding bg-taxi-white">
@@ -60,7 +62,7 @@ const renderedDesc = marked.parse(career.body);
 
       <div class="bg-taxi-black rounded-3xl p-6 md:p-8 lg:sticky lg:top-28">
         <h3 class="text-xl font-bold text-taxi-white mb-6">{form_title}</h3>
-        <form action="#" method="POST" class="space-y-4">
+        <form action={`mailto:${contact.email}`} method="post" enctype="text/plain" class="space-y-4">
           <div>
             <label for="c-name" class="block text-sm font-medium text-taxi-gray-200 mb-1.5">Name *</label>
             <input type="text" id="c-name" name="name" required
@@ -89,7 +91,7 @@ const renderedDesc = marked.parse(career.body);
             <input type="checkbox" id="c-privacy" name="privacy" required
               class="mt-1 w-4 h-4 rounded border-gray-600 text-taxi-yellow focus:ring-taxi-yellow bg-taxi-gray-800" />
             <label for="c-privacy" class="text-xs text-taxi-gray-400">
-              Ich stimme der <a href="/taxi-gatz/datenschutz" class="text-taxi-yellow underline hover:text-taxi-yellow-dark">Datenschutzerklärung</a> zu. *
+              Ich stimme der <a href={`${BASE}/datenschutz`} class="text-taxi-yellow underline hover:text-taxi-yellow-dark">Datenschutzerklärung</a> zu. *
             </label>
           </div>
           <button type="submit" class="btn-primary w-full">
@@ -100,7 +102,7 @@ const renderedDesc = marked.parse(career.body);
           </button>
         </form>
         <p class="text-xs text-taxi-gray-500 mt-4">
-          {form_note}
+          {`Alternativ bewerben Sie sich per E-Mail an ${contact.email}`}
         </p>
       </div>
     </div>
