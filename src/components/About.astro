@@ -1,12 +1,11 @@
 ---
-const milestones = [
-  { year: '2002', text: 'Gründung des Familienunternehmens' },
-  { year: '2008', text: 'Erweiterung um Mietwagen-Service' },
-  { year: '2015', text: 'Aufnahme Krankentransporte' },
-  { year: '2023', text: 'Einführung erster Elektrofahrzeuge' },
-  { year: '2025', text: 'Mitglied im Taxiverband NRW' },
-  { year: '2027', text: '25-jähriges Jubiläum' },
-];
+import { getEntry } from 'astro:content';
+import { marked } from 'marked';
+
+const about = await getEntry('about', 'about');
+if (!about) throw new Error('About content not found');
+const { title, body, tags, milestones } = about.data;
+const renderedBody = marked.parse(body);
 ---
 
 <section id="uber-uns" class="section-padding bg-taxi-white">
@@ -17,38 +16,18 @@ const milestones = [
           Über uns
         </span>
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-taxi-black mb-6 text-balance">
-          Familie, die fährt – seit 2002
+          {title}
         </h2>
 
-        <div class="space-y-4 text-taxi-gray-600 leading-relaxed">
-          <p>
-            <strong class="text-taxi-black">Taxi & Mietwagen Gatz</strong> ist ein familiengeführtes Unternehmen aus Overath. Seit der Gründung im Jahr 2002 setzen wir auf <strong class="text-taxi-black">Zuverlässigkeit, Fairness und persönlichen Service</strong>.
-          </p>
-          <p>
-            Mit unseren 8 Mitarbeitern sind wir rund um die Uhr für Sie unterwegs – ob im Stadtgebiet Overath, in den umliegenden Gemeinden oder auf Fernfahrten durch ganz Deutschland.
-          </p>
-          <p>
-            Wir sind stolz darauf, dass viele unserer Fahrgäste seit Jahren Stammkunden sind. <strong class="text-taxi-black">Vertrauen wächst mit jeder Fahrt.</strong>
-          </p>
-        </div>
+        <div class="space-y-4 text-taxi-gray-600 leading-relaxed" set:html={renderedBody}></div>
 
         <div class="flex flex-wrap gap-4 mt-8">
-          <div class="flex items-center gap-2 text-sm font-medium text-taxi-black bg-taxi-gray-100 px-4 py-2 rounded-full">
-            <span class="w-2 h-2 rounded-full bg-taxi-yellow"></span>
-            Familiengeführt
-          </div>
-          <div class="flex items-center gap-2 text-sm font-medium text-taxi-black bg-taxi-gray-100 px-4 py-2 rounded-full">
-            <span class="w-2 h-2 rounded-full bg-taxi-yellow"></span>
-            Seit 2002
-          </div>
-          <div class="flex items-center gap-2 text-sm font-medium text-taxi-black bg-taxi-gray-100 px-4 py-2 rounded-full">
-            <span class="w-2 h-2 rounded-full bg-taxi-yellow"></span>
-            Elektro-Flotte
-          </div>
-          <div class="flex items-center gap-2 text-sm font-medium text-taxi-black bg-taxi-gray-100 px-4 py-2 rounded-full">
-            <span class="w-2 h-2 rounded-full bg-taxi-yellow"></span>
-            Taxiverband-Mitglied
-          </div>
+          {tags.map(tag => (
+            <div class="flex items-center gap-2 text-sm font-medium text-taxi-black bg-taxi-gray-100 px-4 py-2 rounded-full">
+              <span class="w-2 h-2 rounded-full bg-taxi-yellow"></span>
+              {tag}
+            </div>
+          ))}
         </div>
       </div>
 

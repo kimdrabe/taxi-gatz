@@ -1,0 +1,124 @@
+backend:
+  name: github
+  repo: kimdrabe/taxi-gatz
+  branch: main
+  base_url: https://api.github.com
+
+media_folder: public/uploads
+public_folder: /taxi-gatz/uploads
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "hero"
+    label: "Hero Bereich"
+    label_singular: "Hero"
+    folder: "src/content/hero"
+    create: false
+    format: "frontmatter"
+    extension: md
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Untertitel", name: "subtitle", widget: "text" }
+      - { label: "Verfügbarkeit", name: "availability", widget: "string" }
+      - { label: "Hervorgehobenes Wort", name: "highlight_word", widget: "string" }
+      - { label: "CTA Primary", name: "cta_primary", widget: "string" }
+      - { label: "CTA Secondary", name: "cta_secondary", widget: "string" }
+      - { label: "Telefon", name: "phone", widget: "string" }
+      - label: "Badges"
+        name: badges
+        widget: list
+        fields:
+          - { label: "Text", name: "text", widget: "string" }
+          - { label: "Icon (clock, location, years)", name: "icon", widget: "select", options: ["clock", "location", "years"] }
+
+  - name: "services"
+    label: "Leistungen"
+    label_singular: "Leistung"
+    folder: "src/content/services"
+    create: true
+    delete: true
+    format: "frontmatter"
+    extension: md
+    slug: "service-{{order}}-{{slug}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Beschreibung", name: "description", widget: "text" }
+      - { label: "Icon (Emoji)", name: "icon", widget: "string" }
+      - { label: "Reihenfolge", name: "order", widget: "number", value_type: "int", min: 1 }
+
+  - name: "about"
+    label: "Über uns"
+    folder: "src/content/about"
+    create: false
+    format: "frontmatter"
+    extension: md
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Text", name: "body", widget: "markdown" }
+      - label: "Tags"
+        name: tags
+        widget: list
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - label: "Meilensteine"
+        name: milestones
+        widget: list
+        fields:
+          - { label: "Jahr", name: "year", widget: "string" }
+          - { label: "Beschreibung", name: "text", widget: "string" }
+
+  - name: "reviews"
+    label: "Bewertungen"
+    label_singular: "Bewertung"
+    folder: "src/content/reviews"
+    create: true
+    delete: true
+    format: "frontmatter"
+    extension: md
+    slug: "review-{{order}}-{{slug}}"
+    fields:
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Bewertungstext", name: "text", widget: "text" }
+      - { label: "Sterne (1-5)", name: "rating", widget: "number", value_type: "int", min: 1, max: 5 }
+      - { label: "Reihenfolge", name: "order", widget: "number", value_type: "int" }
+
+  - name: "career"
+    label: "Karriere"
+    folder: "src/content/career"
+    create: false
+    format: "frontmatter"
+    extension: md
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Untertitel", name: "subtitle", widget: "string" }
+      - { label: "Job Titel", name: "job_title", widget: "string" }
+      - { label: "Beschreibung", name: "description", widget: "markdown" }
+      - label: "Benefits"
+        name: benefits
+        widget: list
+        field: { label: "Benefit", name: "benefit", widget: "string" }
+      - label: "Anforderungen"
+        name: requirements
+        widget: list
+        field: { label: "Anforderung", name: "requirement", widget: "string" }
+      - { label: "Formular-Titel", name: "form_title", widget: "string" }
+      - { label: "Formular-Hinweis", name: "form_note", widget: "string" }
+
+  - name: "contact"
+    label: "Kontakt"
+    folder: "src/content/contact"
+    create: false
+    format: "frontmatter"
+    extension: md
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Beschreibung", name: "description", widget: "text" }
+      - { label: "Telefon", name: "phone", widget: "string" }
+      - { label: "E-Mail", name: "email", widget: "string" }
+      - { label: "Adresse", name: "address", widget: "string" }
+      - { label: "Öffnungszeiten", name: "hours", widget: "string" }
+      - { label: "Formular-Überschrift", name: "form_heading", widget: "string" }

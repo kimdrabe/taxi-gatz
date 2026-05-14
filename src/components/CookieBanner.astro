@@ -1,5 +1,5 @@
 ---
-
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-50 bg-taxi-black/95 backdrop-blur-md border-t border-white/10 transform translate-y-full transition-transform duration-500 ease-out">
@@ -8,7 +8,7 @@
       <div class="flex-1">
         <p class="text-sm text-taxi-gray-200">
           Diese Website verwendet Cookies, um Ihnen die bestmögliche Erfahrung zu bieten.
-          <a href="/datenschutz" class="text-taxi-yellow underline hover:text-taxi-yellow-dark transition-colors">Mehr erfahren</a>
+          <a href={`${BASE}/datenschutz`} class="text-taxi-yellow underline hover:text-taxi-yellow-dark transition-colors">Mehr erfahren</a>
         </p>
       </div>
       <div class="flex gap-3 flex-shrink-0">

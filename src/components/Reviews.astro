@@ -1,36 +1,8 @@
 ---
-const reviews = [
-  {
-    name: 'Michael S.',
-    text: 'Immer pünktlich, immer freundlich. Ich nutze Taxi Gatz regelmäßig für meine Fahrten zur Arbeit – absolute Empfehlung!',
-    rating: 5,
-  },
-  {
-    name: 'Petra K.',
-    text: 'Habe den Service für den Flughafentransfer gebucht. Pünktlich um 4 Uhr morgens vor der Tür. Sehr zuverlässig!',
-    rating: 5,
-  },
-  {
-    name: 'Familie Wagner',
-    text: 'Die Kinder lieben die Fahrten zur Schule mit Taxi Gatz. Immer sicher und die Fahrer sind super freundlich.',
-    rating: 5,
-  },
-  {
-    name: 'Dr. Heinrich B.',
-    text: 'Als Patient mit regelmäßigen Dialysefahrten bin ich auf Verlässlichkeit angewiesen. Taxi Gatz enttäuscht nie.',
-    rating: 5,
-  },
-  {
-    name: 'Anna-Lena M.',
-    text: 'Habe kurzfristig ein Taxi gebraucht – innerhalb von 10 Minuten war der Fahrer da. Schnell und unkompliziert.',
-    rating: 5,
-  },
-  {
-    name: 'Thomas R.',
-    text: 'Professioneller Mietwagen-Service für Geschäftstermine. Saubere Fahrzeuge, faire Preise, immer pünktlich.',
-    rating: 5,
-  },
-];
+import { getCollection } from 'astro:content';
+
+const reviewEntries = await getCollection('reviews');
+const sorted = reviewEntries.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <section id="bewertungen" class="section-padding bg-taxi-gray-100">
@@ -48,15 +20,15 @@ const reviews = [
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {reviews.map((review, index) => (
+      {sorted.map((review, index) => (
         <blockquote
           class="bg-taxi-white rounded-2xl p-6 shadow-sm border border-gray-100"
           style={`animation: slideUpSm 0.5s ease-out ${index * 0.05}s forwards; opacity: 0;`}
         >
-          <div class="flex gap-0.5 mb-4" aria-label={`${review.rating} von 5 Sternen`}>
+          <div class="flex gap-0.5 mb-4" aria-label={`${review.data.rating} von 5 Sternen`}>
             {Array.from({ length: 5 }, (_, i) => (
               <svg
-                class={`w-5 h-5 ${i < review.rating ? 'text-taxi-yellow' : 'text-gray-200'}`}
+                class={`w-5 h-5 ${i < review.data.rating ? 'text-taxi-yellow' : 'text-gray-200'}`}
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 aria-hidden="true"
@@ -65,8 +37,8 @@ const reviews = [
               </svg>
             ))}
           </div>
-          <p class="text-sm text-taxi-gray-700 leading-relaxed mb-4 italic">"{review.text}"</p>
-          <footer class="text-sm font-bold text-taxi-black">— {review.name}</footer>
+          <p class="text-sm text-taxi-gray-700 leading-relaxed mb-4 italic">"{review.data.text}"</p>
+          <footer class="text-sm font-bold text-taxi-black">— {review.data.name}</footer>
         </blockquote>
       ))}
     </div>

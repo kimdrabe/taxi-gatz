@@ -1,56 +1,8 @@
 ---
-const services = [
-  {
-    title: 'Taxi',
-    description: 'Schnell und sicher ans Ziel – innerorts, umliegende Orte und auf Wunsch auch in die umliegenden Städte.',
-    icon: '🚕',
-  },
-  {
-    title: 'Mietwagen',
-    description: 'Komfortable Fahrten auf Vorbestellung. Ideal für Geschäftstermine, private Erledigungen oder besondere Anlässe.',
-    icon: '🚙',
-  },
-  {
-    title: 'Krankentransporte',
-    description: 'Einfühlsame und zuverlässige Beförderung zu Arztterminen, Therapien oder Krankenhausaufenthalten. Inklusive Begleitperson.',
-    icon: '🏥',
-  },
-  {
-    title: 'Schülerfahrten',
-    description: 'Verlässliche Beförderung von Kindern zur Schule, zur KiTa oder zu Freizeitaktivitäten.',
-    icon: '🎒',
-  },
-  {
-    title: 'KiTa-Fahrten',
-    description: 'Bringen und Abholen Ihrer Kleinsten zur Kindertagesstätte – pünktlich und sicher.',
-    icon: '🧸',
-  },
-  {
-    title: 'Flughafenfahrten',
-    description: 'Stressfreie Fahrt zu den Flughäfen Köln/Bonn, Düsseldorf oder Frankfurt. Inklusive Gepäckhilfe.',
-    icon: '✈️',
-  },
-  {
-    title: 'Bahnhofsfahrten',
-    description: 'Pünktlicher Transfer zum Bahnhof – ob für den Berufsverkehr oder die Reise.',
-    icon: '🚄',
-  },
-  {
-    title: 'Kurierfahrten',
-    description: 'Schnelle Zustellung von Dokumenten, Paketen oder Ersatzteilen im Stadt- und Regionalverkehr.',
-    icon: '📦',
-  },
-  {
-    title: 'Fernfahrten',
-    description: 'Auch für längere Strecken sind wir Ihr zuverlässiger Partner. Sicher und komfortabel durch ganz Deutschland.',
-    icon: '🛣️',
-  },
-  {
-    title: 'Dialysefahrten',
-    description: 'Regelmäßige und verlässliche Fahrten zu Ihren Dialyse-Terminen – immer zur richtigen Zeit am richtigen Ort.',
-    icon: '❤️',
-  },
-];
+import { getCollection } from 'astro:content';
+
+const services = await getCollection('services');
+const sorted = services.sort((a, b) => a.data.order - b.data.order);
 ---
 
 <section id="leistungen" class="section-padding bg-taxi-gray-100">
@@ -68,18 +20,18 @@ const services = [
     </div>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-      {services.map((service, index) => (
+      {sorted.map((service, index) => (
         <article
           class="group relative bg-taxi-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-taxi-yellow/30 hover:-translate-y-1"
           style={`animation: slideUpSm 0.5s ease-out ${index * 0.05}s forwards; opacity: 0;`}
         >
           <div class="flex items-start gap-4">
             <span class="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-taxi-yellow/10 text-2xl group-hover:scale-110 transition-transform duration-300">
-              {service.icon}
+              {service.data.icon}
             </span>
             <div>
-              <h3 class="text-lg font-bold text-taxi-black mb-2">{service.title}</h3>
-              <p class="text-sm text-taxi-gray-600 leading-relaxed">{service.description}</p>
+              <h3 class="text-lg font-bold text-taxi-black mb-2">{service.data.title}</h3>
+              <p class="text-sm text-taxi-gray-600 leading-relaxed">{service.data.description}</p>
             </div>
           </div>
         </article>

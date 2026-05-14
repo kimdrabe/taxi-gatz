@@ -1,17 +1,18 @@
 ---
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '') || '';
 const navItems = [
-  { label: 'Start', href: '/' },
-  { label: 'Leistungen', href: '/#leistungen' },
-  { label: 'Über uns', href: '/#uber-uns' },
-  { label: 'Karriere', href: '/karriere' },
-  { label: 'Kontakt', href: '/kontakt' },
+  { label: 'Start', href: `${BASE}/` },
+  { label: 'Leistungen', href: `${BASE}/#leistungen` },
+  { label: 'Über uns', href: `${BASE}/#uber-uns` },
+  { label: 'Karriere', href: `${BASE}/#karriere` },
+  { label: 'Kontakt', href: `${BASE}/#kontakt` },
 ];
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-taxi-black/90 backdrop-blur-md border-b border-white/5">
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Hauptnavigation">
     <div class="flex items-center justify-between h-16 md:h-20">
-      <a href="/" class="flex items-center gap-3 group" aria-label="Taxi Gatz Startseite">
+      <a href={`${BASE}/`} class="flex items-center gap-3 group" aria-label="Taxi Gatz Startseite">
         <span class="flex items-center justify-center w-10 h-10 bg-taxi-yellow rounded-lg text-taxi-black font-extrabold text-lg transition-transform duration-300 group-hover:scale-105">
           G
         </span>
