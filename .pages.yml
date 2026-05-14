@@ -1,16 +1,19 @@
 media: public/uploads
 
-settings:
+content:
+
   - name: seo
-    label: SEO Einstellungen
-    description: "Diese Einstellungen gelten für die gesamte Website und helfen Suchmaschinen, Ihre Seite besser zu verstehen und in den Suchergebnissen weiter oben zu platzieren."
+    label: "SEO Einstellungen"
+    type: file
     path: src/data/site.json
     format: json
+    view:
+      primary: site_title
     fields:
       - name: site_title
         label: "Seitentitel (für Startseite)"
         type: string
-        description: "Erscheint als erster Eintrag in den Google-Suchergebnissen. Sollte Hauptkeyword + Ortsname enthalten. Max. 60 Zeichen. Beispiel: Taxi & Mietwagen Gatz – Ihr zuverlässiges Taxi in Overath"
+        description: "Erscheint als erster Eintrag in den Google-Suchergebnissen. Sollte Hauptkeyword + Ortsname enthalten. Max. 60 Zeichen."
         hint: "Wichtig für Google-Ranking – dies ist der erste Eindruck bei der Suche"
       - name: site_description
         label: "Meta-Beschreibung (für Startseite)"
@@ -27,8 +30,6 @@ settings:
         type: image
         description: "Dieses Bild erscheint, wenn die Seite auf Facebook, WhatsApp, LinkedIn etc. geteilt wird. Empfohlene Größe: 1200×630 Pixel. Wichtig für einen professionellen Eindruck beim Teilen."
         hint: "Ein gutes Vorschaubild erhöht die Klickrate bei Social-Media-Teilungen um bis zu 40%"
-
-content:
 
   - name: hero
     label: Hero Bereich
