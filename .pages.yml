@@ -56,9 +56,12 @@ content:
     format: yaml-frontmatter
     filename: service-{order|number}.md
     view:
+      fields: [order, title]
       primary: title
-      sort:
-        - order
+      sort: [order, title]
+      default:
+        sort: order
+        order: asc
     fields:
       - name: title
         label: Titel
@@ -148,9 +151,12 @@ content:
     format: yaml-frontmatter
     filename: review-{order|number}.md
     view:
+      fields: [order, name]
       primary: name
-      sort:
-        - order
+      sort: [order, name]
+      default:
+        sort: order
+        order: asc
     fields:
       - name: name
         label: Name
