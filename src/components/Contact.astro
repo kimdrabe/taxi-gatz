@@ -1,9 +1,11 @@
 ---
 import { getEntry } from 'astro:content';
+import services from '../data/services.json';
 
 const contact = await getEntry('contact', 'contact');
 if (!contact) throw new Error('Contact content not found');
 const { description, phone, email, address, hours, form_heading } = contact.data;
+const sortedServices = services.sort((a, b) => a.order - b.order);
 ---
 
 <section id="kontakt" class="section-padding bg-taxi-white">
@@ -105,16 +107,9 @@ const { description, phone, email, address, hours, form_heading } = contact.data
             <select id="service" name="service" required
               class="w-full px-4 py-3 bg-taxi-white border border-gray-200 rounded-xl text-sm text-taxi-black focus:ring-2 focus:ring-taxi-yellow focus:border-transparent outline-none transition-all appearance-none">
               <option value="">Bitte wählen...</option>
-              <option value="taxi">Taxi</option>
-              <option value="mietwagen">Mietwagen</option>
-              <option value="krankentransport">Krankentransport</option>
-              <option value="schuelerfahrt">Schülerfahrt</option>
-              <option value="kita-fahrt">KiTa-Fahrt</option>
-              <option value="flughafenfahrt">Flughafenfahrt</option>
-              <option value="bahnhofsfahrt">Bahnhofsfahrt</option>
-              <option value="kurierfahrt">Kurierfahrt</option>
-              <option value="fernfahrt">Fernfahrt</option>
-              <option value="dialysefahrt">Dialysefahrt</option>
+              {sortedServices.map(s => (
+                <option value={s.title}>{s.title}</option>
+              ))}
               <option value="sonstiges">Sonstiges</option>
             </select>
           </div>

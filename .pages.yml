@@ -51,17 +51,13 @@ content:
 
   - name: services
     label: Leistungen
-    type: collection
-    path: src/content/services
-    format: yaml-frontmatter
-    filename: service-{order|number}.md
-    view:
-      fields: [order, title]
-      primary: title
-      sort: [order, title]
-      default:
-        sort: order
-        order: asc
+    type: file
+    path: src/data/services.json
+    format: json
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{title}"
     fields:
       - name: title
         label: Titel
@@ -146,17 +142,13 @@ content:
 
   - name: reviews
     label: Bewertungen
-    type: collection
-    path: src/content/reviews
-    format: yaml-frontmatter
-    filename: review-{order|number}.md
-    view:
-      fields: [order, name]
-      primary: name
-      sort: [order, name]
-      default:
-        sort: order
-        order: asc
+    type: file
+    path: src/data/reviews.json
+    format: json
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{name}"
     fields:
       - name: name
         label: Name

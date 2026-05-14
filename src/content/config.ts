@@ -55,31 +55,9 @@ const careerCollection = defineCollection({
   }),
 });
 
-const servicesCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    icon: z.string(),
-    order: z.number(),
-  }),
-});
-
-const reviewsCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    name: z.string(),
-    text: z.string(),
-    rating: z.number(),
-    order: z.number(),
-  }),
-});
-
 export const collections = {
   hero: heroCollection,
   about: aboutCollection,
   contact: contactCollection,
   career: careerCollection,
-  services: servicesCollection,
-  reviews: reviewsCollection,
 };

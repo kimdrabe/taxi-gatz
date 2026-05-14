@@ -1,8 +1,7 @@
 ---
-import { getCollection } from 'astro:content';
+import reviews from '../data/reviews.json';
 
-const reviewEntries = await getCollection('reviews');
-const sorted = reviewEntries.sort((a, b) => a.data.order - b.data.order);
+const sorted = reviews.sort((a, b) => a.order - b.order);
 ---
 
 <section id="bewertungen" class="section-padding bg-taxi-gray-100">
@@ -25,10 +24,10 @@ const sorted = reviewEntries.sort((a, b) => a.data.order - b.data.order);
           class="bg-taxi-white rounded-2xl p-6 shadow-sm border border-gray-100"
           style={`animation: slideUpSm 0.5s ease-out ${index * 0.05}s forwards; opacity: 0;`}
         >
-          <div class="flex gap-0.5 mb-4" aria-label={`${review.data.rating} von 5 Sternen`}>
+          <div class="flex gap-0.5 mb-4" aria-label={`${review.rating} von 5 Sternen`}>
             {Array.from({ length: 5 }, (_, i) => (
               <svg
-                class={`w-5 h-5 ${i < review.data.rating ? 'text-taxi-yellow' : 'text-gray-200'}`}
+                class={`w-5 h-5 ${i < review.rating ? 'text-taxi-yellow' : 'text-gray-200'}`}
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 aria-hidden="true"
@@ -37,8 +36,8 @@ const sorted = reviewEntries.sort((a, b) => a.data.order - b.data.order);
               </svg>
             ))}
           </div>
-          <p class="text-sm text-taxi-gray-700 leading-relaxed mb-4 italic">"{review.data.text}"</p>
-          <footer class="text-sm font-bold text-taxi-black">— {review.data.name}</footer>
+          <p class="text-sm text-taxi-gray-700 leading-relaxed mb-4 italic">"{review.text}"</p>
+          <footer class="text-sm font-bold text-taxi-black">— {review.name}</footer>
         </blockquote>
       ))}
     </div>
