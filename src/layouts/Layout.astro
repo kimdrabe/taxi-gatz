@@ -22,6 +22,11 @@ const schemaUrl = `${siteHost}${basePath}`;
 const ogTitle = `${title} | Taxi & Mietwagen Gatz`;
 const ogDesc = description || site.site_description;
 const ogImage = image || `${siteHost}${basePath}${site.og_image}`;
+
+const cityName = contact.city.replace(/^\d+\s*/, '') || "Overath";
+const zipMatch = contact.city.match(/\d{5}/);
+const zipCode = zipMatch ? zipMatch[0] : "51491";
+const phoneIntl = `+49${contact.phone.replace(/\s/g, '').replace(/^0/, '')}`;
 ---
 
 <!doctype html>
@@ -59,14 +64,14 @@ const ogImage = image || `${siteHost}${basePath}${site.og_image}`;
       "name": contact.company,
       "image": ogImage,
       "url": schemaUrl,
-      "telephone": `+49${contact.phone.replace(/\s/g, '').replace(/^0/, '')}`,
+      "telephone": phoneIntl,
       "email": contact.email,
       "description": site.site_description,
       "address": {
         "@type": "PostalAddress",
         "streetAddress": contact.street,
-        "addressLocality": contact.city.replace(/^\d+\s*/, '') || "Overath",
-        "postalCode": contact.city.match(/\d{5}/)?.[0] || "51491",
+        "addressLocality": cityName,
+        "postalCode": zipCode,
         "addressCountry": "DE"
       },
       "geo": {
