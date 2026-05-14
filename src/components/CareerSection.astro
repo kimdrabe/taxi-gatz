@@ -4,8 +4,8 @@ import { marked } from 'marked';
 
 const career = await getEntry('career', 'career');
 if (!career) throw new Error('Career content not found');
-const { title, subtitle, job_title, description, benefits, requirements, form_title, form_note } = career.data;
-const renderedDesc = marked.parse(description);
+const { title, subtitle, job_title, benefits, requirements, form_title, form_note } = career.data;
+const renderedDesc = marked.parse(career.body);
 ---
 
 <section id="karriere" class="section-padding bg-taxi-white">

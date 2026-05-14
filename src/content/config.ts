@@ -20,10 +20,7 @@ const heroCollection = defineCollection({
 const aboutCollection = defineCollection({
   type: 'content',
   schema: z.object({
-    heading: z.string().optional(),
-    label: z.string().optional(),
     title: z.string(),
-    body: z.string(),
     tags: z.array(z.string()),
     milestones: z.array(z.object({
       year: z.string(),
@@ -35,8 +32,6 @@ const aboutCollection = defineCollection({
 const contactCollection = defineCollection({
   type: 'content',
   schema: z.object({
-    heading: z.string().optional(),
-    label: z.string().optional(),
     title: z.string(),
     description: z.string(),
     phone: z.string(),
@@ -50,12 +45,9 @@ const contactCollection = defineCollection({
 const careerCollection = defineCollection({
   type: 'content',
   schema: z.object({
-    heading: z.string().optional(),
-    label: z.string().optional(),
     title: z.string(),
     subtitle: z.string(),
     job_title: z.string(),
-    description: z.string(),
     benefits: z.array(z.string()),
     requirements: z.array(z.string()),
     form_title: z.string(),

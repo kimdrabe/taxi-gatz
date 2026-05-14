@@ -1,11 +1,7 @@
 ---
-heading: "Karriere"
-label: "Karriere"
 title: "Werden Sie Teil unseres Teams"
 subtitle: "Wir suchen Verstärkung! Fahren Sie mit uns – flexibel, fair und familiär."
 job_title: "Fahrer (m/w/d) gesucht"
-description: >
-  Wir wachsen und suchen **engagierte Fahrer (m/w/d)** für unseren Fuhrpark. Ob als Vollzeit-, Teilzeitkraft oder auf Minijob-Basis – bei uns finden Sie den Job, der zu Ihrem Leben passt.
 benefits:
   - "Flexible Arbeitszeiten (Vollzeit, Teilzeit, Minijob)"
   - "Faire Vergütung und pünktliche Zahlung"
@@ -23,3 +19,5 @@ requirements:
 form_title: "Jetzt bewerben"
 form_note: "Alternativ bewerben Sie sich per E-Mail an info@taxi-gatz.de"
 ---
+
+Wir wachsen und suchen **engagierte Fahrer (m/w/d)** für unseren Fuhrpark. Ob als Vollzeit-, Teilzeitkraft oder auf Minijob-Basis – bei uns finden Sie den Job, der zu Ihrem Leben passt.

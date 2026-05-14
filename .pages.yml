@@ -1,0 +1,193 @@
+media: public/uploads
+
+content:
+  - name: hero
+    label: Hero Bereich
+    type: file
+    path: src/content/hero/hero.md
+    format: yaml-frontmatter
+    view:
+      primary: title
+    fields:
+      - name: title
+        label: Überschrift
+        type: string
+      - name: subtitle
+        label: Untertitel
+        type: text
+      - name: availability
+        label: Verfügbarkeits-Anzeige
+        type: string
+      - name: highlight_word
+        label: Hervorgehobenes Wort (gelb)
+        type: string
+      - name: cta_primary
+        label: CTA Button 1 (Anrufen)
+        type: string
+      - name: cta_secondary
+        label: CTA Button 2 (Kontakt)
+        type: string
+      - name: phone
+        label: Telefonnummer
+        type: string
+      - name: badges
+        label: Badges (unter den Buttons)
+        type: list
+        summary: "{text}"
+        fields:
+          - name: text
+            label: Text
+            type: string
+          - name: icon
+            label: Icon
+            type: select
+            options:
+              - { label: "Uhr (24/7)", value: clock }
+              - { label: "Ort (Region)", value: location }
+              - { label: "Jahre (Seit)", value: years }
+
+  - name: services
+    label: Leistungen
+    type: collection
+    path: src/content/services
+    format: yaml-frontmatter
+    filename: service-{order|number}.md
+    view:
+      primary: title
+      sort:
+        - order
+    fields:
+      - name: title
+        label: Titel
+        type: string
+      - name: description
+        label: Beschreibung
+        type: text
+      - name: icon
+        label: Icon (Emoji)
+        type: string
+      - name: order
+        label: Reihenfolge
+        type: number
+
+  - name: about
+    label: Über uns
+    type: file
+    path: src/content/about/about.md
+    format: yaml-frontmatter
+    view:
+      primary: title
+    fields:
+      - name: title
+        label: Titel
+        type: string
+      - name: body
+        label: Text
+        type: rich-text
+      - name: tags
+        label: Tags
+        type: list
+        items:
+          type: string
+      - name: milestones
+        label: Meilensteine (Zeitleiste)
+        type: list
+        summary: "{year}: {text}"
+        fields:
+          - name: year
+            label: Jahr
+            type: string
+          - name: text
+            label: Beschreibung
+            type: string
+
+  - name: career
+    label: Karriere
+    type: file
+    path: src/content/career/career.md
+    format: yaml-frontmatter
+    view:
+      primary: title
+    fields:
+      - name: title
+        label: Titel
+        type: string
+      - name: subtitle
+        label: Untertitel
+        type: string
+      - name: job_title
+        label: Stellenbezeichnung
+        type: string
+      - name: body
+        label: Beschreibung
+        type: rich-text
+      - name: benefits
+        label: Benefits
+        type: list
+        items:
+          type: string
+      - name: requirements
+        label: Anforderungen
+        type: list
+        items:
+          type: string
+      - name: form_title
+        label: Formular-Überschrift
+        type: string
+      - name: form_note
+        label: Formular-Hinweis
+        type: string
+
+  - name: reviews
+    label: Bewertungen
+    type: collection
+    path: src/content/reviews
+    format: yaml-frontmatter
+    filename: review-{order|number}.md
+    view:
+      primary: name
+      sort:
+        - order
+    fields:
+      - name: name
+        label: Name
+        type: string
+      - name: text
+        label: Bewertungstext
+        type: text
+      - name: rating
+        label: Sterne (1-5)
+        type: number
+      - name: order
+        label: Reihenfolge
+        type: number
+
+  - name: contact
+    label: Kontakt
+    type: file
+    path: src/content/contact/contact.md
+    format: yaml-frontmatter
+    view:
+      primary: title
+    fields:
+      - name: title
+        label: Titel
+        type: string
+      - name: description
+        label: Beschreibung
+        type: text
+      - name: phone
+        label: Telefonnummer
+        type: string
+      - name: email
+        label: E-Mail-Adresse
+        type: string
+      - name: address
+        label: Adresse
+        type: string
+      - name: hours
+        label: Öffnungszeiten
+        type: string
+      - name: form_heading
+        label: Formular-Überschrift
+        type: string

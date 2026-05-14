@@ -1,6 +1,4 @@
 ---
-heading: "Kontakt"
-label: "Kontakt"
 title: "Wir sind für Sie da"
 description: "Rufen Sie uns an oder schreiben Sie uns eine Nachricht. Wir antworten in der Regel innerhalb weniger Stunden."
 phone: "02206 123456"

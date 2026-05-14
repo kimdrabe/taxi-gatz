@@ -4,8 +4,8 @@ import { marked } from 'marked';
 
 const about = await getEntry('about', 'about');
 if (!about) throw new Error('About content not found');
-const { title, body, tags, milestones } = about.data;
-const renderedBody = marked.parse(body);
+const { title, tags, milestones } = about.data;
+const renderedBody = marked.parse(about.body);
 ---
 
 <section id="uber-uns" class="section-padding bg-taxi-white">

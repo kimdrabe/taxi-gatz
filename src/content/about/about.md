@@ -1,13 +1,5 @@
 ---
-heading: "Über uns"
-label: "Über uns"
 title: "Familie, die fährt – seit 2002"
-body: >
-  **Taxi & Mietwagen Gatz** ist ein familiengeführtes Unternehmen aus Overath. Seit der Gründung im Jahr 2002 setzen wir auf **Zuverlässigkeit, Fairness und persönlichen Service**.
-
-  Mit unseren 8 Mitarbeitern sind wir rund um die Uhr für Sie unterwegs – ob im Stadtgebiet Overath, in den umliegenden Gemeinden oder auf Fernfahrten durch ganz Deutschland.
-
-  Wir sind stolz darauf, dass viele unserer Fahrgäste seit Jahren Stammkunden sind. **Vertrauen wächst mit jeder Fahrt.**
 tags:
   - Familiengeführt
   - Seit 2002
@@ -27,3 +19,9 @@ milestones:
   - year: "2027"
     text: "25-jähriges Jubiläum"
 ---
+
+**Taxi & Mietwagen Gatz** ist ein familiengeführtes Unternehmen aus Overath. Seit der Gründung im Jahr 2002 setzen wir auf **Zuverlässigkeit, Fairness und persönlichen Service**.
+
+Mit unseren 8 Mitarbeitern sind wir rund um die Uhr für Sie unterwegs – ob im Stadtgebiet Overath, in den umliegenden Gemeinden oder auf Fernfahrten durch ganz Deutschland.
+
+Wir sind stolz darauf, dass viele unserer Fahrgäste seit Jahren Stammkunden sind. **Vertrauen wächst mit jeder Fahrt.**
