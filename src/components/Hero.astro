@@ -21,9 +21,7 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, '') || '';
         <span class="text-xs font-semibold uppercase tracking-widest text-taxi-yellow">{availability}</span>
       </div>
 
-      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-taxi-white leading-[1.1] mb-6 animate-slide-up text-balance">
-        {title.replace(highlight_word, `<span class="text-taxi-yellow">${highlight_word}</span>`)}
-      </h1>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-taxi-white leading-[1.1] mb-6 animate-slide-up text-balance" set:html={title.replace(highlight_word, `<span class="text-taxi-yellow">${highlight_word}</span>`)}></h1>
 
       <p class="text-lg md:text-xl text-taxi-gray-400 leading-relaxed max-w-2xl mb-8 animate-slide-up" style="animation-delay: 0.15s;">
         {subtitle}
